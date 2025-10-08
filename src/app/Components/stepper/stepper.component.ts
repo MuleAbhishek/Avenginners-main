@@ -76,7 +76,7 @@ export class StepperComponent implements OnInit, AfterViewInit {
       seatsAvailable: 150, 
       price: 4500, 
       duration: '2h 00m',
-      date: '2025-10-06'  // FIXED: YYYY-MM-DD (matches UI input and error suggestions)
+      date: '2025-10-08'  // FIXED: YYYY-MM-DD (matches UI input and error suggestions)
     },
     { 
       id: 2, 
@@ -89,7 +89,7 @@ export class StepperComponent implements OnInit, AfterViewInit {
       seatsAvailable: 100, 
       price: 6000, 
       duration: '2h 00m',
-      date: '2025-10-06'  // FIXED: YYYY-MM-DD
+      date: '2025-10-08'  // FIXED: YYYY-MM-DD
     },
     // Mumbai → Delhi (Oct 2, 2024)
     { 

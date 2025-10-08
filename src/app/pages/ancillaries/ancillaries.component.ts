@@ -63,7 +63,6 @@ export class AncillariesComponent implements OnInit {
       ancillaryPrice: this.ancillaryTotal  // Optional: Add to models if needed
     });
   }
-
   onContinue(): void {
     console.log('Ancillaries finalized:', this.selectedAncillaries);
     this.router.navigate(['/confirmation']);  // Next: Review & Pay

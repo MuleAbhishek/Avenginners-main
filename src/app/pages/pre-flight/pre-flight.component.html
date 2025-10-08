@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-50 py-8 px-4">
+<div class="min-h-screen px-4 py-8 bg-gray-50">
   <div class="max-w-4xl mx-auto">
     <!-- Breadcrumb -->
     <nav class="mb-6 text-sm text-gray-500">
@@ -6,9 +6,9 @@
     </nav>
 
     <!-- Transport Card -->
-    <div class="bg-white rounded-xl shadow-md p-8">
-      <h2 class="text-3xl font-bold mb-4 text-gray-800">Pre-Flight Transport (Home to Airport)</h2>
-      <p class="text-gray-600 mb-6">Select how you'd like to reach the source airport from your residential address.</p>
+    <div class="p-8 bg-white shadow-md rounded-xl">
+      <h2 class="mb-4 text-3xl font-bold text-gray-800">Pre-Flight Transport (Home to Airport)</h2>
+      <p class="mb-6 text-gray-600">Select how you'd like to reach the source airport from your residential address.</p>
       
       <form [formGroup]="form" class="space-y-6">
         <!-- Pickup Address -->
@@ -20,12 +20,12 @@
 
         <!-- Transport Modes (Radio Group - Card Style) -->
         <div class="space-y-3" *ngIf="modes.length > 0">
-          <h3 class="text-xl font-semibold mb-2">Select Transport Mode</h3>
+          <h3 class="mb-2 text-xl font-semibold">Select Transport Mode</h3>
           <mat-radio-group formControlName="pickupMode" class="space-y-2">
             <mat-radio-button *ngFor="let mode of modes" 
                               [value]="mode.name" 
-                              class="w-full p-4 border border-gray-200 rounded-lg hover:border-orange-300 transition-all cursor-pointer">
-              <div class="flex justify-between items-center">
+                              class="w-full p-4 transition-all border border-gray-200 rounded-lg cursor-pointer hover:border-orange-300">
+              <div class="flex items-center justify-between">
                 <div>
                   <strong>{{ mode.name }}</strong>
                   <p class="text-sm text-gray-600">{{ mode.description || 'Comfortable ride' }}</p>
@@ -45,14 +45,14 @@
           <mat-spinner diameter="50"></mat-spinner>
           <p class="ml-4">Fetching transport options...</p>
         </div>
-        <div *ngIf="!isLoading && modes.length === 0 && form.get('pickupAddress')?.value" class="text-center p-8 text-gray-500">  <!-- Fixed: Complete *ngIf -->
+        <div *ngIf="!isLoading && modes.length === 0 && form.get('pickupAddress')?.value" class="p-8 text-center text-gray-500">  <!-- Fixed: Complete *ngIf -->
           No transport options available for this address. Please try another.
         </div>
 
         <!-- Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-4">
-          <button mat-stroked-button routerLink="/flight-details/1" class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg">Back</button>
-          <button mat-raised-button color="accent" (click)="onContinue()" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold"
+        <div class="flex flex-col gap-4 pt-4 sm:flex-row">
+          <button mat-stroked-button routerLink="/flight-details/1" class="flex-1 py-3 text-gray-700 bg-gray-200 rounded-lg">Back</button>
+          <button mat-raised-button color="accent" (click)="onContinue()" class="flex-1 py-3 font-semibold text-white bg-orange-500 rounded-lg hover:bg-orange-600"
                   [disabled]="form.invalid || isLoading">
             Continue to Post-Flight Transport
           </button>
